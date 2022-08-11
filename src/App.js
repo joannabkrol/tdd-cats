@@ -1,11 +1,11 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Card from "./components/Card/Card";
+import Cards from "./components/Cards/Cards";
+import cats from "./mocks/cats.json";
 
 function App() {
   return (
     <div>
-      <Card
+      {/* <Card
         name="Sydney"
         phone="111-111-111"
         email="test@test.com"
@@ -14,7 +14,8 @@ function App() {
           alt: "Cute cat",
         }}
         favoured={false}
-      />
+      /> */}
+      <Cards cats={cats} />
     </div>
   );
 }
