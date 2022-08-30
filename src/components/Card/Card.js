@@ -2,11 +2,21 @@ import { useState } from "react";
 import heartFilled from "../../svgs/heart-filled.svg";
 import heartOutlined from "../../svgs/heart-outline.svg";
 import "./Card.css";
+import { useContext } from "react";
+import { PetsContext } from "../Pets/Pets";
 
-const Card = ({ name, phone, email, image, favoured }) => {
+const Card = ({ name, phone, email, image, favoured, index }) => {
+  const { cats, setCats } = useContext(PetsContext);
   const [isFavoured, setIsFavoured] = useState(favoured);
 
+  const updateFavourite = (index, favoured) => {
+    const updatedCats = [...cats];
+    updatedCats[index].favoured = favoured;
+    setCats(updatedCats);
+  };
+
   const toggleFavoured = () => {
+    updateFavourite(index, !isFavoured);
     setIsFavoured((prevState) => !prevState);
   };
 
